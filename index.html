@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#141b20" />
+  <meta name="description" content="Личный дневник мыслей, чувств и идей, работающий офлайн." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Мои записи" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Мои записи</title>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div><div class="eyebrow">Личное пространство</div><h1>Мои записи<span class="dot">.</span></h1><p class="subtitle">Мысли, чувства и идеи в одном месте</p></div>
+      <span class="offline" id="networkStatus" aria-live="polite">Локально</span>
+    </header>
+    <section class="composer panel" aria-label="Новая запись">
+      <div class="sectionhead"><h2 id="editorTitle">Что сейчас у тебя на уме?</h2><time id="currentTime"></time></div>
+      <div class="types" role="group" aria-label="Тип записи">
+        <button class="type active" type="button" data-type="thought" aria-pressed="true">◌ Мысль</button>
+        <button class="type" type="button" data-type="feeling" aria-pressed="false">♡ Чувство</button>
+        <button class="type" type="button" data-type="idea" aria-pressed="false">✦ Идея</button>
+      </div>
+      <label class="sr-only" for="entryText">Текст записи</label>
+      <textarea id="entryText" rows="5" maxlength="20000" placeholder="Пиши свободно. Не обязательно искать правильные слова..."></textarea>
+      <div class="composerfoot"><span id="charCount">0 символов</span><div class="actions"><button class="button ghost" id="cancelEdit" type="button" hidden>Отмена</button><button class="button primary" id="saveEntry" type="button">Сохранить запись <span aria-hidden="true">↗</span></button></div></div>
+    </section>
+    <section class="archive" aria-label="Архив записей">
+      <div class="archivehead"><div><div class="eyebrow">Архив</div><h2>История <span id="entryCount" class="count">0</span></h2></div><div class="filebuttons"><button class="button secondary" type="button" id="importButton">Импорт JSON</button><button class="button secondary" type="button" id="exportButton">Экспорт JSON ↓</button><input id="importFile" type="file" accept=".json,application/json" hidden></div></div>
+      <div class="filters"><input id="search" type="search" placeholder="Поиск по записям" aria-label="Поиск по записям"/><select id="typeFilter" aria-label="Фильтр по типу"><option value="all">Все записи</option><option value="thought">Мысли</option><option value="feeling">Чувства</option><option value="idea">Идеи</option></select></div>
+      <div id="entryList" class="entrylist" aria-live="polite"></div>
+    </section>
+    <footer>Записи остаются в этом браузере. Делай экспорт JSON для резервного копирования и анализа в ChatGPT.</footer>
+  </main>
+  <div id="toast" role="status" class="toast" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
