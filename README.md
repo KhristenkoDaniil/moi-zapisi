@@ -4,7 +4,7 @@
 
 ## Развертывание через GitHub Pages
 1. Создайте новый публичный репозиторий GitHub, например `moi-zapisi`.
-2. Загрузите **содержимое** этой папки в корень репозитория (`index.html`, `app.js`, `styles.css`, `manifest.webmanifest`, `sw.js`, папку `icons`).
+2. Загрузите **содержимое** этой папки в корень репозитория (`index.html`, `app.js`, `styles.css`, `manifest.webmanifest`, `sw.js`, `icon-192.png`, `icon-512.png`).
 3. В Settings → Pages выберите `Deploy from a branch`, ветку `main`, каталог `/ (root)` и сохраните.
 4. Откройте полученный HTTPS-адрес. В Chrome на Android установите приложение через меню браузера; на iPhone — Safari → «Поделиться» → «На экран Домой».
 
